@@ -6,7 +6,8 @@ package edu.up.cs371.primetester;
  * The purpose of this class is to define a static method, isPrime, that determines whether an
  * integer is a prime number.
  */
-public class PrimeTester {
+public class PrimeTester
+{
     /**
      * Tells whether an integer is prime.
      *
@@ -14,7 +15,24 @@ public class PrimeTester {
      * @return true iff n is prime
      */
     public static boolean isPrime(long n) {
-        // for now, return a random result
-        return Math.random() > 0.5;
+        if(n==2)
+        {
+            return true;
+        }
+        if(n==1)
+        {
+            return false;
+        }
+        if (n % 2 == 0) {
+            return false;
+        }
+        for (int i = 3; i * i <= n; i += 2) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+
+
     }
 }
